@@ -112,44 +112,27 @@ a:hover {
   color: var(--second-color);
 }
 
-.github {
-  height: 100%;
-  width: 2rem;
-}
-
-.github path {
-  fill: white;
-}
-
-.github:hover path {
-  fill: var(--second-color);
-}
-
-.menu-page {
-  background-color: var(--shadow-color);
-  /* color: black; */
-  padding: 3rem;
-  border-radius: 2rem;
-}
-
-.menu-page h1 {
-  margin: 0;
-  text-align: center;
-}
-#menu-description {
-  margin-bottom: 1rem;
-}
-.foods {
+.search-bar {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.food-card {
+#search-button {
+  border: none;
+  background-color: white;
+}
+header {
+  height: 20vh;
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  border-bottom: 1px solid var(--second-color);
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+header h1 {
+  display: inline;
 }
 @media (max-width: 500px) {
   .content {
