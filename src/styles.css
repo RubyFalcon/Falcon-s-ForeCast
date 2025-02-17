@@ -1,0 +1,175 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+:root {
+  --primary-color: white;
+  --second-color: rgb(233, 163, 34);
+  --shadow-color: rgba(180, 178, 178, 0.2);
+}
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+
+  color: white;
+  background-size: cover;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+a,
+a *,
+button,
+button * {
+  cursor: pointer;
+  transition: var(--fast-transition);
+}
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.content {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem;
+  padding-top: 5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 4rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: var(--second-color);
+}
+
+.github {
+  height: 100%;
+  width: 2rem;
+}
+
+.github path {
+  fill: white;
+}
+
+.github:hover path {
+  fill: var(--second-color);
+}
+
+.menu-page {
+  background-color: var(--shadow-color);
+  /* color: black; */
+  padding: 3rem;
+  border-radius: 2rem;
+}
+
+.menu-page h1 {
+  margin: 0;
+  text-align: center;
+}
+#menu-description {
+  margin-bottom: 1rem;
+}
+.foods {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.food-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-bottom: 1px solid var(--second-color);
+}
+@media (max-width: 500px) {
+  .content {
+    margin: 0 auto;
+    width: 23rem;
+    justify-content: center;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    width: 70%;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .content {
+    width: 20rem;
+  }
+}
