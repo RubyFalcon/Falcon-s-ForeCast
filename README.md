@@ -1,4 +1,4 @@
-# Falcon's ForeCasr
+# Falcon's ForeCast
 
 A ForeCast/ Weather application using Visual Crossing API
 
