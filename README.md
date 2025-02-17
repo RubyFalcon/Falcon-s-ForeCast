@@ -1,5 +1,5 @@
-# webpack template
+# Falcon's ForeCasr
 
-A template to setup a webpack based project
+A ForeCast/ Weather application using Visual Crossing API
 
 Use npm install to install the package
