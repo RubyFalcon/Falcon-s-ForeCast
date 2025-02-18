@@ -2,22 +2,48 @@ import "./styles.css";
 
 const countryInput = document.getElementById("country");
 const locationButton = document.getElementById("search-button");
+
+//convert temp
+const convertTemp = (fahrenheit) => {
+  return ((fahrenheit - 32) * 5) / 9;
+};
 const getWeather = async (location) => {
   try {
     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=NJVNLA2GU3RGV646GKCNDHHYX`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    return data;
   } catch (error) {
     console.log(error);
   }
 };
 
-getWeather("london");
+locationButton.addEventListener("click", async (event) => {
+  const content = document.querySelector(".content");
 
-locationButton.addEventListener("click", (event) => {
+  content.innerHTML = "";
+  const addressElement = document.createElement("h1");
+  addressElement.className = "address";
+
+  const celcius = document.createElement("p");
+  celcius.className = "temperature";
+
   event.preventDefault();
-  console.log(countryInput.value);
+  const countryData = await getWeather(countryInput.value);
+  console.log(countryData);
 
-  getWeather(countryInput.value);
+  const { address, country, description, currentConditions } = await getWeather(
+    countryInput.value
+  );
+  console.log(
+    `resolved address is : ${address},\n ${country}\n${description} , ,\n ${currentConditions.datetime}`
+  );
+  console.log(currentConditions);
+  addressElement.textContent = address;
+  const span = document.createElement("span");
+  span.className = "Celicus";
+  span.textContent = "°C";
+  celcius.textContent = `${convertTemp(currentConditions.temp).toFixed(1)}`;
+  celcius.appendChild(span);
+  content.append(addressElement, celcius);
 });
