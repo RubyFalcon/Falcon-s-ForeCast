@@ -124,6 +124,10 @@ a:hover {
   gap: 0.3rem;
 }
 
+.address::first-letter {
+  text-transform: uppercase;
+}
+
 .search-bar input {
   width: 30rem;
   border-radius: 3px;
