@@ -25,16 +25,20 @@ locationButton.addEventListener("click", async (event) => {
   const addressElement = document.createElement("h1");
   addressElement.className = "address";
 
+  const date = document.createElement("h2");
+  date.className = "date";
+
   const celcius = document.createElement("p");
   celcius.className = "temperature";
 
+  const feelsLike = document.createElement("p");
+  feelsLike.className = "temperature";
   event.preventDefault();
   const countryData = await getWeather(countryInput.value);
   console.log(countryData);
 
-  const { address, country, description, currentConditions } = await getWeather(
-    countryInput.value
-  );
+  const { address, country, description, currentConditions, days } =
+    await getWeather(countryInput.value);
   console.log(
     `resolved address is : ${address},\n ${country}\n${description} , ,\n ${currentConditions.datetime}`
   );
@@ -45,5 +49,11 @@ locationButton.addEventListener("click", async (event) => {
   span.textContent = "°C";
   celcius.textContent = `${convertTemp(currentConditions.temp).toFixed(1)}`;
   celcius.appendChild(span);
-  content.append(addressElement, celcius);
+
+  feelsLike.textContent = `Feels like : ${convertTemp(
+    currentConditions.feelslike
+  ).toFixed(1)}`;
+  feelsLike.appendChild(span);
+  date.textContent = days[0].datetime;
+  content.append(addressElement, date, celcius, feelsLike);
 });
