@@ -10,9 +10,13 @@
   margin: 0;
 }
 :root {
-  --primary-color: rgb(0, 0, 0);
-  --second-color: rgb(233, 163, 34);
-  --shadow-color: rgba(180, 178, 178, 0.2);
+  --bg-color: #0f172a;
+  --text-color: #e2e8f0;
+  --accent-blue: #38bdf8;
+  --container-bg: #1e293b;
+  --container-hover: #2c333f;
+  --secondary-bg: #334155;
+  --border-radius: 12px;
 }
 body {
   /* 3. Add accessible line-height */
@@ -22,8 +26,9 @@ body {
   height: 100vh;
   font-family: "Roboto", sans-serif;
 
-  color: rgb(0, 0, 0);
+  color: var(--text-color);
   background-size: cover;
+  background-color: var(--bg-color);
 }
 
 /* 5. Improve media defaults */
@@ -91,6 +96,7 @@ button * {
   justify-content: start;
   gap: 2rem;
   padding-top: 5rem;
+  background-color: var(--container-bg);
 }
 
 h1 {
@@ -105,7 +111,6 @@ p {
 a {
   font-size: 1.5rem;
   text-decoration: none;
-  color: white;
 }
 
 a:hover {
@@ -119,9 +124,26 @@ a:hover {
   gap: 0.3rem;
 }
 
+.search-bar input {
+  width: 30rem;
+  border-radius: 3px;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  background-color: var(--container-bg);
+  color: var(--text-color);
+}
+.search-bar input:hover,
+.search-bar input:focus {
+  background-color: var(--container-hover);
+}
 #search-button {
   border: none;
-  background-color: white;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+#search-button:hover {
+  color: var(--accent-blue);
 }
 header {
   height: 20vh;
