@@ -9,7 +9,7 @@ const convertTemp = (fahrenheit) => {
 };
 const getWeather = async (location) => {
   try {
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=NJVNLA2GU3RGV646GKCNDHHYX`;
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${process.env.WEATHER_API_KEY}`;
     const response = await fetch(url);
     const data = await response.json();
     return data;
@@ -34,9 +34,6 @@ locationButton.addEventListener("click", async (event) => {
   const feelsLike = document.createElement("p");
   feelsLike.className = "temperature";
   event.preventDefault();
-  const countryData = await getWeather(countryInput.value);
-  console.log(countryData);
-
   const { address, country, description, currentConditions, days } =
     await getWeather(countryInput.value);
   console.log(
@@ -44,16 +41,19 @@ locationButton.addEventListener("click", async (event) => {
   );
   console.log(currentConditions);
   addressElement.textContent = address;
-  const span = document.createElement("span");
-  span.className = "Celicus";
-  span.textContent = "°C";
+  const celciusSpan = document.createElement("span");
+  celciusSpan.className = "Celicus";
+  celciusSpan.textContent = "°C";
   celcius.textContent = `${convertTemp(currentConditions.temp).toFixed(1)}`;
-  celcius.appendChild(span);
+  celcius.appendChild(celciusSpan);
 
+  const feelsLikeSpan = document.createElement("span");
+  feelsLikeSpan.className = "Celicus";
+  feelsLikeSpan.textContent = "°C";
   feelsLike.textContent = `Feels like : ${convertTemp(
     currentConditions.feelslike
   ).toFixed(1)}`;
-  feelsLike.appendChild(span);
+  feelsLike.appendChild(feelsLikeSpan);
   date.textContent = days[0].datetime;
   content.append(addressElement, date, celcius, feelsLike);
 });
