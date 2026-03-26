@@ -11,10 +11,10 @@
 }
 
 :root {
-  --bg-color: #0f172a;
+  --bg-color: #1B2023;
   --text-color: #e2e8f0;
   --accent-blue: #38bdf8;
-  --container-bg: #1e293b;
+  --container-bg: #24353E;
   --container-hover: #2c333f;
   --secondary-bg: #334155;
   --border-radius: 12px;
@@ -185,7 +185,7 @@ header h1 {
 .card-temp {
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--accent-blue);
+  color: var(--text-color);
 }
 
 .card-icon {
